@@ -1,3 +1,5 @@
+# inference.py
+
 import SimpleITK
 from pathlib import Path
 from queue import Queue

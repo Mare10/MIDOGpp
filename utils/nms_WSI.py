@@ -1,3 +1,5 @@
+# utils/nms_WSI.py
+
 """
         Non maxima suppression on WSI results
 

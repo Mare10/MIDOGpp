@@ -1,4 +1,4 @@
-# data_loader.py
+# slide/data_loader.py
 
 import openslide
 from fastai.vision import *

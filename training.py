@@ -1,3 +1,5 @@
+# training.py
+
 from torch.utils.data import SubsetRandomSampler
 from slide.slide_helper import *
 from slide.data_loader import *

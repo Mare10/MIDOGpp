@@ -1,3 +1,5 @@
+# main.py
+
 import sys
 from training import training
 from inference import inference
