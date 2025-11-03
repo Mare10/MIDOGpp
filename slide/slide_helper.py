@@ -1,3 +1,5 @@
+# slide_helper.py
+
 from SlideRunner.dataAccess.database import Database
 import pandas as pd
 import numpy as np
