@@ -56,6 +56,10 @@ conda install pytorch=1.7.0 torchvision=0.8.1 torchaudio=0.7.0 cudatoolkit=10.1 
 pip install -r requirements.txt
 ```
 
+### Dataset Exploration
+
+To quickly inspect the images and their corresponding mitotic figure annotations, you can use the Jupyter Notebook provided in `test/sichte_daten.ipynb`. After setting up the Conda environment, this notebook can be run (e.g., in VS Code) to load a random slide and display a patch with its ground truth labels.
+
 ### Citation
 
 If you use this dataset in your research, please cite our paper:
