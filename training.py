@@ -18,7 +18,15 @@ def get_y_func(x):
 
 def training(cfg: DictConfig):
     # Confirm that you have a GPU!
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    if torch.cuda.is_available():
+        device = torch.device('cuda')
+        print("Using CUDA GPU")
+    elif torch.backends.mps.is_available():
+        device = torch.device('mps')
+        print("Using Apple Silicon GPU (MPS)")
+    else:
+        device = torch.device('cpu')
+        print("Using CPU")
     tumortypes =  [tumortype for tumortype in cfg.data.tumortypes.split(",")]
     sizes = [(cfg.retinanet.sizes, cfg.retinanet.sizes)]
     ratios = [cfg.retinanet.ratios]

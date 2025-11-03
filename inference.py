@@ -47,7 +47,16 @@ class MyMitosisDetection:
         self.batchsize = config["data"]["value"]["batch_size"]
 
         self.anchors = create_anchors(sizes=sizes, ratios=ratios, scales=scales)
-        self.device = torch.device('cpu' if not torch.cuda.is_available() else 'cuda')
+        # Modern device selection for cross-platform compatibility
+        if torch.cuda.is_available():
+            self.device = torch.device('cuda')
+            print("Inference: Using CUDA GPU")
+        elif torch.backends.mps.is_available():
+            self.device = torch.device('mps')
+            print("Inference: Using Apple Silicon GPU (MPS)")
+        else:
+            self.device = torch.device('cpu')
+            print("Inference: Using CPU")
 
     def load_model(self):
         if torch.cuda.is_available():
