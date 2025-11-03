@@ -18,11 +18,43 @@ This repository contains the databases with all mitotic figure annotations of th
 
 ### Getting started
 
-All requirements needed to run the scripts in this repository can be installed using pip:
+The original `requirements.txt` file is tailored for systems with specific NVIDIA drivers. For Apple Silicon Macs, please use the following Conda-based setup.
 
-```pip -r requirements.txt```
+#### Installation on Apple M4
 
-To download all files from figshare, please run the notebook [Setup.ipynb](Setup.ipynb). It will place all 65 GB of images in the images folder.
+This method installs compatible versions of all required packages.
+
+1.  **Create and activate the Conda environment:**
+    ```bash
+    conda create --name midogpp_env python=3.9 -y
+    conda activate midogpp_env
+    ```
+
+2.  **Install PyTorch (version compatible with fastai):**
+    ```bash
+    conda install "pytorch<2.7" torchvision torchaudio -c pytorch -y
+    ```
+
+3.  **Install core dependencies with Conda:**
+    ```bash
+    conda install openslide numpy pandas scikit-learn pillow opencv pyyaml tqdm jupyter fastai -c conda-forge -y
+    ```
+
+4.  **Install remaining packages with Pip:**
+    ```bash
+    pip install evalutils hydra-core object_detection_fastai omegaconf SimpleITK SlideRunner torchmetrics
+    ```
+
+#### Original Installation
+
+If you are working on a system with CUDA 10.1 support, the original dependencies can be installed as follows:
+
+```bash
+conda create --name midogpp-env python=3.8 -y
+conda activate midogpp-env
+conda install pytorch=1.7.0 torchvision=0.8.1 torchaudio=0.7.0 cudatoolkit=10.1 -c pytorch -y
+pip install -r requirements.txt
+```
 
 ### Citation
 
