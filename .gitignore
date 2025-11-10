@@ -133,3 +133,6 @@ dmypy.json
 
 # Data
 images
+
+# Apple System Files
+.DS_Store
